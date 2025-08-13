@@ -1,4 +1,12 @@
 import streamlit as st
+# Hide Streamlit's default menu & footer
+hide_github_footer = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_github_footer, unsafe_allow_html=True)
 import pandas as pd
 from bank import BankingSystem
 # Initialize the Banking System
