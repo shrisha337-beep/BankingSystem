@@ -54,7 +54,7 @@ class BankingSystem:
             writer = csv.writer(f)
             writer.writerow([datetime.datetime.now().isoformat(), acc_no, tx_type, amount, balance, description])
 
-    def deposit(self, acc_no, amount):
+    def deposit(self, acc_no, amount, remark=""):
         accounts = self.load_accounts()
         acc_no = str(acc_no)
 
@@ -66,7 +66,7 @@ class BankingSystem:
         self.add_account_tx(acc_no, "Deposit", amount, accounts[acc_no]["Balance"], "Cash deposit")
         return accounts[acc_no]
 
-    def withdraw(self, acc_no, amount):
+    def withdraw(self, acc_no, amount, remark=""):
         accounts = self.load_accounts()
         acc_no = str(acc_no)
 
