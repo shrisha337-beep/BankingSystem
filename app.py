@@ -62,7 +62,7 @@ elif action == "Withdraw":
         else:
             try:
                 account = bs.withdraw(account_number, amount, remark)
-                st.success(f"Withdrawal successful! New Balance: ₹{account['balance']:.2f}")
+                st.success(f"Withdrawal successful! New Balance: ₹{account['amount']:.2f}")
                 st.json(account)
             except ValueError as e:
                 st.error(str(e))
@@ -76,7 +76,7 @@ elif action == "Check Balance":
             try:
                 account = bs.get_account(account_number)
                 if account:
-                    st.success(f"Account Balance: ₹{account['balance']:.2f}")
+                    st.success(f"Account Balance: ₹{account['amount']:.2f}")
                     st.json(account)
                 else:
                     st.error(f"Account with number {account_number} does not exist")
