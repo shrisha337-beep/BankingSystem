@@ -76,7 +76,7 @@ elif action == "Check Balance":
             try:
                 account = bs.get_account(account_number)
                 if account:
-                    st.success(f"Account Balance: ₹{account['Balance']:.2f}")
+                    st.success(f"Account Balance: ₹{account['amount']:.2f}")
                     st.json(account)
                 else:
                     st.error(f"Account with number {account_number} does not exist")
