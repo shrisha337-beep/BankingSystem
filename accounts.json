@@ -1,1 +1,20 @@
-{}
+{
+    "1001": {
+        "Name": "Shrisha",
+        "Account Number": 1001,
+        "Balance": 10001.0,
+        "Created": "2025-08-14T12:56:03.520422"
+    },
+    "1002": {
+        "Name": "Shriya",
+        "Account Number": 1002,
+        "Balance": 100.0,
+        "Created": "2025-08-14T12:56:19.206737"
+    },
+    "1003": {
+        "Name": "Shrish",
+        "Account Number": 1003,
+        "Balance": 108.0,
+        "Created": "2025-08-14T12:56:34.546077"
+    }
+}

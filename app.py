@@ -105,7 +105,13 @@ elif action == "All Accounts":
     if accounts:
         df = pd.DataFrame.from_dict(accounts, orient='index')
         df.reset_index(inplace=True)
-        df.rename(columns={'index': 'Account Number'}, inplace=True)
+        # Rename 'index' only if it doesn't cause a duplicate
+        if 'Account Number' not in df.columns:
+            df.rename(columns={'index': 'Account Number'}, inplace=True)
+        else:
+            df.rename(columns={'index': 'Account Number (ID)'}, inplace=True)
+        # Remove duplicate column names if still present
+        df = df.loc[:, ~df.columns.duplicated()]
         st.dataframe(df)
     else:
         st.info("No accounts found. Please create an account first.")
