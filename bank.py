@@ -61,9 +61,9 @@ class BankingSystem:
         if acc_no not in accounts:
             return {"error": "Account not found"}
 
-        accounts[acc_no]["Balance"] += float(amount)
+        accounts[acc_no]["balance"] += float(amount)
         self.save_accounts(accounts)
-        self.add_account_tx(acc_no, "Deposit", amount, accounts[acc_no]["Balance"], "Cash deposit")
+        self.add_account_tx(acc_no, "Deposit", amount, accounts[acc_no]["balance"], "Cash deposit")
         return accounts[acc_no]
 
     def withdraw(self, acc_no, amount, remark=""):
@@ -73,12 +73,12 @@ class BankingSystem:
         if acc_no not in accounts:
             return {"error": "Account not found"}
 
-        if accounts[acc_no]["Balance"] < float(amount):
+        if accounts[acc_no]["balance"] < float(amount):
             return {"error": "Insufficient funds"}
 
-        accounts[acc_no]["Balance"] -= float(amount)
+        accounts[acc_no]["balance"] -= float(amount)
         self.save_accounts(accounts)
-        self.add_account_tx(acc_no, "Withdrawal", amount, accounts[acc_no]["Balance"], "Cash withdrawal")
+        self.add_account_tx(acc_no, "Withdrawal", amount, accounts[acc_no]["balance"], "Cash withdrawal")
         return accounts[acc_no]
 
     def get_account(self, acc_no):
