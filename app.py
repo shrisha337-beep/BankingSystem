@@ -45,7 +45,7 @@ elif action == "Deposit":
         else:
             try:
                 account = bs.deposit(account_number, amount, remark)
-                st.success(f"Deposit successful! New Balance: ₹{account['balance']:.2f}")
+                st.success(f"Deposit successful! New Balance: ₹{account['amount']:.2f}")
                 st.json(account)
             except ValueError as e:
                 st.error(str(e))
